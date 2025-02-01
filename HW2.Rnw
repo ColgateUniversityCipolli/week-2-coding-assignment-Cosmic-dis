@@ -78,12 +78,12 @@ mid.points <- (left.points+right.points)/2
   skeleton below. When you are done, remove \texttt{eval=FALSE} to show that
   the function provides the expected result for the example above.\\
   \textbf{Solution:}
-<<eval=FALSE, size="scriptsize", warning=FALSE, message=FALSE>>=
+<<size="scriptsize", warning=FALSE, message=FALSE>>=
 riemann.sums <- function(fnct,                        # function to integrate
                          a,                           # lower bound of integral
                          b,                           # upper bound of integral
                          n.rect,                      # number of  bound of integral
-                         method = "Trapezoidial"){    # method to use (trap by default)
+                         method = "Trapezoidal"){    # method to use (trap by default)
   ######################################
   # Check Input
   ######################################
@@ -100,15 +100,15 @@ riemann.sums <- function(fnct,                        # function to integrate
   # Compute Area
   ######################################
   if(method == "Left"){
-    # Add necessary code here
+    return (left.area)
   }else if(method == "Right"){
-    # Add necessary code here
+    return (right.area)
   }else if(method == "Midpoint"){
-    # Add necessary code here
-  }else if(method == "Trapezoidial"){
-    # Add necessary code here
+    return (mid.area)
+  }else if(method == "Trapezoidal"){
+    return (trap.area)
   }else{
-    stop("Please select a valid method (e.g., 'Left', 'Right', 'Midpoint', 'Trapezoidial')")
+    stop("Please select a valid method (e.g., 'Left', 'Right', 'Midpoint', 'Trapezoidal')")
   }
   ######################################
   # Return the area
@@ -121,7 +121,8 @@ riemann.sums <- function(fnct,                        # function to integrate
 riemann.sums(fnct = integrand,
              a = 0,
              b = 2,
-             n.rect = 100)
+             n.rect = 100,
+             method = "Left")
 ######################################
 # Compare to numerical integral
 ######################################

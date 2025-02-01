@@ -174,7 +174,7 @@ We can compute the area using the Midpoint Rule as follows.
                          \hlkwc{a}\hldef{,}                           \hlcom{# lower bound of integral}
                          \hlkwc{b}\hldef{,}                           \hlcom{# upper bound of integral}
                          \hlkwc{n.rect}\hldef{,}                      \hlcom{# number of  bound of integral}
-                         \hlkwc{method} \hldef{=} \hlsng{"Trapezoidial"}\hldef{)\{}    \hlcom{# method to use (trap by default)}
+                         \hlkwc{method} \hldef{=} \hlsng{"Trapezoidal"}\hldef{)\{}    \hlcom{# method to use (trap by default)}
   \hlcom{######################################}
   \hlcom{# Check Input}
   \hlcom{######################################}
@@ -191,15 +191,15 @@ We can compute the area using the Midpoint Rule as follows.
   \hlcom{# Compute Area}
   \hlcom{######################################}
   \hlkwa{if}\hldef{(method} \hlopt{==} \hlsng{"Left"}\hldef{)\{}
-    \hlcom{# Add necessary code here}
+    \hlkwd{return} \hldef{(left.area)}
   \hldef{\}}\hlkwa{else if}\hldef{(method} \hlopt{==} \hlsng{"Right"}\hldef{)\{}
-    \hlcom{# Add necessary code here}
+    \hlkwd{return} \hldef{(right.area)}
   \hldef{\}}\hlkwa{else if}\hldef{(method} \hlopt{==} \hlsng{"Midpoint"}\hldef{)\{}
-    \hlcom{# Add necessary code here}
-  \hldef{\}}\hlkwa{else if}\hldef{(method} \hlopt{==} \hlsng{"Trapezoidial"}\hldef{)\{}
-    \hlcom{# Add necessary code here}
+    \hlkwd{return} \hldef{(mid.area)}
+  \hldef{\}}\hlkwa{else if}\hldef{(method} \hlopt{==} \hlsng{"Trapezoidal"}\hldef{)\{}
+    \hlkwd{return} \hldef{(trap.area)}
   \hldef{\}}\hlkwa{else}\hldef{\{}
-    \hlkwd{stop}\hldef{(}\hlsng{"Please select a valid method (e.g., 'Left', 'Right', 'Midpoint', 'Trapezoidial')"}\hldef{)}
+    \hlkwd{stop}\hldef{(}\hlsng{"Please select a valid method (e.g., 'Left', 'Right', 'Midpoint', 'Trapezoidal')"}\hldef{)}
   \hldef{\}}
   \hlcom{######################################}
   \hlcom{# Return the area}
@@ -212,7 +212,13 @@ We can compute the area using the Midpoint Rule as follows.
 \hlkwd{riemann.sums}\hldef{(}\hlkwc{fnct} \hldef{= integrand,}
              \hlkwc{a} \hldef{=} \hlnum{0}\hldef{,}
              \hlkwc{b} \hldef{=} \hlnum{2}\hldef{,}
-             \hlkwc{n.rect} \hldef{=} \hlnum{100}\hldef{)}
+             \hlkwc{n.rect} \hldef{=} \hlnum{100}\hldef{,}
+             \hlkwc{method} \hldef{=} \hlsng{"Left"}\hldef{)}
+\end{alltt}
+\begin{verbatim}
+## [1] 8.7464
+\end{verbatim}
+\begin{alltt}
 \hlcom{######################################}
 \hlcom{# Compare to numerical integral}
 \hlcom{######################################}
@@ -220,6 +226,9 @@ We can compute the area using the Midpoint Rule as follows.
           \hlkwc{lower} \hldef{=} \hlnum{0}\hldef{,}     \hlcom{# that completes numerical}
           \hlkwc{upper} \hldef{=} \hlnum{2}\hldef{)}     \hlcom{# integration}
 \end{alltt}
+\begin{verbatim}
+## 8.666667 with absolute error < 9.8e-14
+\end{verbatim}
 \end{kframe}
 \end{knitrout}
 \end{enumerate}
