@@ -69,6 +69,8 @@ mid.points <- (left.points+right.points)/2
   \textbf{Solution:}
 <<size="scriptsize", warning=FALSE, message=FALSE>>=
 # Write code for answer here.
+
+(trap.area = (left.area + right.area)/2)
 @
   \item Write a function that takes \texttt{a}, \texttt{b}, and number of 
   rectangles (\texttt{n.rect}) in as input and returns the Trapezoidial Rule 
